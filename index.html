@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Üzr İstəyirəm - Sual Cavab Forması</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fce4ec;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 500px;
+        }
+        h1 {
+            color: #e91e63;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #333;
+            font-size: 1.1em;
+        }
+        .question {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            display: block;
+        }
+        .answer-buttons {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        button {
+            padding: 12px 25px;
+            border: none;
+            background-color: #e91e63;
+            color: white;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #d81b60;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            resize: vertical;
+            font-size: 1.1em;
+        }
+
+        /* Mobil uyumlu tasarım */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            p {
+                font-size: 1em;
+            }
+            .question {
+                font-size: 1em;
+            }
+            button {
+                font-size: 1em;
+            }
+        }
+
+        /* Küçük ekranlar için butonları hizalama */
+        @media (max-width: 480px) {
+            .answer-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 1-ci Sual -->
+        <div class="question" id="question1">
+            <p>1. İbrahimi sizə qarşı çoxmu düşüncəsizlik edib?</p>
+            <div class="answer-buttons">
+                <button onclick="showAnswer(1, 'Bəli')">Bəli</button>
+                <button onclick="showAnswer(1, 'Xeyir')">Xeyir</button>
+            </div>
+        </div>
+
+        <!-- 2-ci Sual -->
+        <div class="question" id="question2" style="display: none;">
+            <p>2. Bu olanlara rəğmən hələdə İbrahim səhvini düzəltmək üçün bir addım atmıyıbmı?</p>
+            <div class="answer-buttons">
+                <button onclick="showAnswer(2, 'Bəli')">Bəli</button>
+                <button onclick="showAnswer(2, 'Xeyir')">Xeyir</button>
+            </div>
+        </div>
+
+        <!-- 3-cü Sual -->
+        <div class="question" id="question3" style="display: none;">
+            <p>3. Əgər İbrahim indi yanı başınızda olsa idi ona nələr edərdiniz?. Ürəy sözlərinizi qeyd edərdiniz zəhmət olmasa:</p>
+            <textarea id="heartWords" placeholder="Ürəy sözlərinizi buraya yazın..." rows="5"></textarea>
+            <div class="answer-buttons">
+                <button onclick="showAnswer(3)">Təqdim et</button>
+            </div>
+        </div>
+
+        <!-- 4-cü Sual -->
+        <div class="question" id="question4" style="display: none;">
+            <P><b>Anlaşıldı. Amma bilməyinizi istərdikki, İbrahim də bunun gecdə olsa fərqinə varıb və öz hərəkətinə görə çox məyusdu. İndi isə nə edəcəyini bilmir. Çünki siz onun ən dəyərli və tək dostusunuz və öz səhvini düzəltmək üçün əlindən gələn hər şeyi etməyə hazırdı.</b></P>
+            <p>4. Bəs siz bütün bu olanlara rəğmən onu bağışlamaq istəyirsinizmi?</p>
+            <div class="answer-buttons">
+                <button onclick="showAnswer(4, 'Bəli')">Bəli</button>
+                <button onclick="showAnswer(4, 'Xeyir')">Xeyir</button>
+            </div>
+        </div>
+
+        <!-- 5-ci Sual -->
+        <div class="question" id="question5" style="display: none;">
+            <p><b>Əminik ki, İbrahim də bu cavabınız qarşısında çox sevinəcək. Hətta havalara uçacaq!.Teşekkür ederiz iyi yürekli hatun.</b></p>
+        </div>
+
+        <!-- 6-cı Sual -->
+        <div class="question" id="question6" style="display: none;">
+            <P><b>Anlaşıldı. Amma bilməyinizi istərdikki, İbrahim də bunun gecdə olsa fərqinə varıb və öz hərəkətinə görə çox məyusdu. İndi isə nə edəcəyini bilmir. Çünki siz onun ən dəyərli və tək dostusunuz və öz səhvini düzəltmək üçün əlindən gələn hər şeyi etməyə hazırdı.</b></P>
+            <p>4. Bəs siz bütün bu olanlara rəğmən onu bağışlamaq istəyirsinizmi?</p>
+            <div class="answer-buttons">
+                <button onclick="showAnswer(6, 'Bəli')">Bəli</button>
+                <button onclick="showAnswer(6, 'Xeyir')">Xeyir</button>
+            </div>
+        </div>
+
+        <!-- 7-ci Sual -->
+        <div class="question" id="question7" style="display: none;">
+            <P><b>Anlaşıldı. Amma bilməyinizi istərdikki, İbrahim də bunun gecdə olsa fərqinə varıb və öz hərəkətinə görə çox məyusdu. İndi isə nə edəcəyini bilmir. Çünki siz onun ən dəyərli və tək dostusunuz və öz səhvini düzəltmək üçün əlindən gələn hər şeyi etməyə hazırdı.</b></P>
+            <p>4. Bəs siz bütün bu olanlara rəğmən onu bağışlamaq istəyirsinizmi?</p>
+            <div class="answer-buttons">
+                <button onclick="showAnswer(7, 'Bəli')">Bəli</button>
+                <button onclick="showAnswer(7, 'Xeyir')">Xeyir</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let question1Answered = false;
+        let question2Answered = false;
+        let question3Answered = false;
+        let question4Answered = false;
+        let question5Answered = false;
+        let question6Answered = false;
+        let question7Answered = false;
+
+        function showAnswer(questionNumber, answer) {
+            if (questionNumber === 1) {
+                question1Answered = true;
+            }
+            if (questionNumber === 2) {
+                question2Answered = true;
+            }
+            if (questionNumber === 3) {
+                const heartWords = document.getElementById("heartWords").value.trim();
+                if (heartWords === "") {
+                    alert("Zəhmət olmasa ürəy sözlərinizi yazın.");
+                    return;
+                }
+                question3Answered = true;
+            }
+            if (questionNumber === 4) {
+                question4Answered = true;
+                if (answer === 'Bəli') {
+                    document.getElementById("question4").style.display = "none";
+                    document.getElementById("question5").style.display = "block";
+                } else if (answer === 'Xeyir') {
+                    alert("Sizin cavabınıza hörmətlə yanaşırıq. Amma yenə də düşünməyinizi istərdik.");
+                    document.getElementById("question4").style.display = "none";
+                    document.getElementById("question6").style.display = "block";
+                }
+            }
+            if (questionNumber === 6) {
+                question6Answered = true;
+                if (answer === 'Bəli') {
+                    document.getElementById("question6").style.display = "none";
+                    document.getElementById("question5").style.display = "block";
+                } else if (answer === 'Xeyir') {
+                    alert("Sizin cavabınıza hörmətlə yanaşırıq. Amma belə bir seçim haqqınız yoxdur.");
+                    document.getElementById("question6").style.display = "none";
+                    document.getElementById("question7").style.display = "block";
+                }
+            }
+            if (questionNumber === 7) {
+                question6Answered = true;
+                if (answer === 'Bəli') {
+                    document.getElementById("question7").style.display = "none";
+                    document.getElementById("question6").style.display = "block";
+                } else if (answer === 'Xeyir') {
+                    alert("Sizin cavabınıza hörmətlə yanaşırıq. Amma belə bir seçim haqqınız yoxdur.");
+                    document.getElementById("question6").style.display = "none";
+                    document.getElementById("question7").style.display = "block";
+                }
+            }
+
+            document.getElementById("question" + questionNumber).style.display = "none";
+
+            // Növbəti sualı göstər
+            if (questionNumber === 1 && !question2Answered) {
+                document.getElementById("question2").style.display = "block";
+            } else if (questionNumber === 2 && !question3Answered) {
+                document.getElementById("question3").style.display = "block";
+            } else if (questionNumber === 3 && !question4Answered) {
+                document.getElementById("question4").style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
